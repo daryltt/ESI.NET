@@ -4,7 +4,7 @@ using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 using static ESI.NET.EsiRequest;
-using opportunities = ESI.NET.Models.Opportunities;
+using Opportunities = ESI.NET.Models.Opportunities;
 
 namespace ESI.NET.Logic
 {
@@ -39,9 +39,9 @@ namespace ESI.NET.Logic
         /// </summary>
         /// <param name="group_id"></param>
         /// <returns></returns>
-        public async Task<EsiResponse<opportunities.Group>> Group(int group_id, string eTag = null,
+        public async Task<EsiResponse<Opportunities.Group>> Group(int group_id, string eTag = null,
             CancellationToken cancellationToken = default)
-            => await Execute<opportunities.Group>(_client, _config, RequestSecurity.Public, HttpMethod.Get,
+            => await Execute<Opportunities.Group>(_client, _config, RequestSecurity.Public, HttpMethod.Get,
                 "/opportunities/groups/{group_id}/",
                 eTag: eTag,
                 cancellationToken: cancellationToken,
@@ -65,9 +65,9 @@ namespace ESI.NET.Logic
         /// </summary>
         /// <param name="task_id"></param>
         /// <returns></returns>
-        public async Task<EsiResponse<opportunities.Task>> Task(int task_id, string eTag = null,
+        public async Task<EsiResponse<Opportunities.Task>> Task(int task_id, string eTag = null,
             CancellationToken cancellationToken = default)
-            => await Execute<opportunities.Task>(_client, _config, RequestSecurity.Public, HttpMethod.Get,
+            => await Execute<Opportunities.Task>(_client, _config, RequestSecurity.Public, HttpMethod.Get,
                 "/opportunities/tasks/{task_id}/",
                 eTag: eTag,
                 cancellationToken: cancellationToken,
@@ -81,9 +81,9 @@ namespace ESI.NET.Logic
         /// </summary>
         /// <param name="character_id"></param>
         /// <returns></returns>
-        public async Task<EsiResponse<List<opportunities.CompletedTask>>> CompletedTasks(string eTag = null,
+        public async Task<EsiResponse<List<Opportunities.CompletedTask>>> CompletedTasks(string eTag = null,
             CancellationToken cancellationToken = default)
-            => await Execute<List<opportunities.CompletedTask>>(_client, _config, RequestSecurity.Authenticated,
+            => await Execute<List<Opportunities.CompletedTask>>(_client, _config, RequestSecurity.Authenticated,
                 HttpMethod.Get, "/characters/{character_id}/opportunities/",
                 eTag: eTag,
                 cancellationToken: cancellationToken,
